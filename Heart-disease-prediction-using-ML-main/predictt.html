@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Cambria', serif;
+            text-align: center;
+            background: linear-gradient(to bottom right, #850000, #ffb3b3);
+            color: white;
+            padding-top: 50px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            color: black;
+        }
+        .result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Prediction Result</h2>
+        <p class="result">{{ result }}</p>
+        <a href="/" style="text-decoration: none; color: white;">
+            <button style="background-color: #850000; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
+        </a>
+    </div>
+</body>
+</html>

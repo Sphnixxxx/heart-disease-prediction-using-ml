@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="og:title" content="Healthy Nepal: Heart Disease Predictor">
+  <meta name="author" content="ReticleX">
+  <meta name="og:image" content="static/favicon.ico">
+  <title>Healthy Nepal: Heart Disease Predictor</title>
+  <link rel="icon" type="image/x-icon" href="static/favicon.ico?v=2" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <style>
+    /* Global Styles */
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: #f8f9fa;
+      padding-top: 80px; /* To account for navbar height */
+    }
+
+    header {
+      height: 80px;
+    }
+
+    footer {
+      height: 75px;
+      background-color: #f44336;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    nav.navbar {
+      background-image: linear-gradient(to right, #f44336, #e57373);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.navbar .navbar-brand img {
+      height: 60px;
+      width: auto;
+    }
+
+    nav.navbar .nav-link {
+      color: white !important;
+      font-weight: bold;
+      margin-right: 15px;
+      font-size: 1.1rem;
+    }
+
+    nav.navbar .nav-link:hover {
+      color: #ffeb3b !important;
+    }
+
+    .container-fluid {
+      margin: 20px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 1100px;
+      flex-grow: 1;
+    }
+
+    h2 {
+      color: #f44336;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      color: #e57373;
+    }
+
+    button {
+      background-color: #f44336 !important;
+      color: white !important;
+      font-weight: bold;
+      border-radius: 8px;
+      padding: 12px 35px;
+      font-size: 1.1rem;
+      border: none;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #e57373 !important;
+    }
+
+    .card-body {
+      background-color: #ffebee;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input.form-control {
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    .nav-item {
+      padding: 0 15px;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      color: #f44336;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav.navbar .nav-link {
+        font-size: 1rem;
+      }
+
+      .container-fluid {
+        margin: 15px;
+        padding: 20px;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 12px 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="home.html">
+      <img src="logo.jpg" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="heart.html">Heart Predictor</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content Section -->
+  <main>
+    <div class="container-fluid">
+      <!-- Welcome Section -->
+      <h2>Welcome to Healthy Nepal</h2>
+      <h3>Your Heart Health Predictor</h3>
+      <p class="text-center">
+        This tool uses advanced machine learning algorithms to predict heart disease risk based on various health factors.
+        Protect your heart by staying informed!
+       <li> Used Models:</li>
+       <li> 1.Random Forest Classifier</li>
+       <li> 2.Logistic Regression</li>
+
+      </p>
+
+      <!-- Predict Button Section -->
+      <div class="text-center">
+        <a href="{{ url_for('main_page') }}"><button>Start Prediction❤️ </button></a>
+
+      <!-- About Section -->
+      <div class="card-body">
+        <h4 class="card-title">About the Heart Disease Predictor</h4>
+        <p>
+          Heart disease is one of the leading causes of death globally. By using data from various health-related factors, our tool can help identify individuals who may be at risk and guide them toward preventive measures.
+        </p>
+        <ul>
+          <li>Analyze your lifestyle and health data</li>
+          <li>Get personalized risk predictions</li>
+          <li>Take preventive actions to safeguard your heart health</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>Made with Machine Learning </p>
+  </footer>
+
+</body>
+</html>

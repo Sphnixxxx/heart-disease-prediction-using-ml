@@ -1,0 +1,196 @@
+<style>
+    body {
+        font-family: 'Cambria', serif;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: linear-gradient(to bottom right, #850000, #ffb3b3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        width: 60%;
+        max-width: 800px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+    }
+
+    .header {
+        background: #850000;
+        padding: 20px;
+        text-align: center;
+        color: white;
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .marquee {
+        background-color: #ff4d4d;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .form-container {
+        padding: 30px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #850000;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #850000;
+        border-radius: 5px;
+        background-color: #ffe6e6;
+        width: 100%;
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .form-row .form-group {
+        flex: 1;
+    }
+
+    .btn-block {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background: #850000;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .btn-block:hover {
+        background: #ff4d4d;
+        transition: background-color 0.3s;
+    }
+
+    @media (max-width: 768px) {
+        .form-row {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<div class="container">
+    <!-- Marquee -->
+    <div class="marquee">
+        Welcome to the Heart Disease Predictor! Fill in the details accurately to get the prediction results.
+    </div>
+
+    <!-- Header -->
+    <div class="header"></div>
+
+    <!-- Form -->
+    <div class="form-container">
+        <form action="/predictt" method="POST">
+            <!-- Patient ID -->
+            <div class="form-group">
+                <label for="patientid">Patient ID</label>
+                <input id="patientid" class="form-control" type="text" name="patientid" placeholder="Enter Patient ID">
+            </div>
+
+            <!-- Age and Sex -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input id="age" class="form-control" type="text" name="age" placeholder="Enter Age (in years)">
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex</label>
+                    <input id="sex" class="form-control" type="text" name="sex" placeholder="1 = Male; 0 = Female">
+                </div>
+            </div>
+
+            <!-- Chest Pain and Blood Pressure -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cp">Chest Pain Type</label>
+                    <input id="cp" class="form-control" type="text" name="cp" placeholder="0 = No, 1 = Typical Angina, 2 = Atypical Angina, 3 = Non-Anginal Pain:">
+                </div>
+                <div class="form-group">
+                    <label for="trestbps">Resting Blood Pressure</label>
+                    <input id="trestbps" class="form-control" type="text" name="trestbps" placeholder="Resting Blood Pressure in mm of hg">
+                </div>
+            </div>
+
+            <!-- Cholesterol and Fasting Blood Sugar -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="chol">Serum Cholesterol</label>
+                    <input id="chol" class="form-control" type="text" name="chol" placeholder="In mg/dl">
+                </div>
+                <div class="form-group">
+                    <label for="fbs">Fasting Blood Sugar</label>
+                    <input id="fbs" class="form-control" type="text" name="fbs" placeholder="Fasting Blood Sugar (1 = True, 0 = False):">
+                </div>
+            </div>
+
+            <!-- ECG and Heart Rate -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="restecg">Resting ECG</label>
+                    <input id="restecg" class="form-control" type="text" name="restecg" placeholder="0 = Normal,1=ST-T waveabnormality,2=LeftVentricularHypertrophy">
+                </div>
+                <div class="form-group">
+                    <label for="thalach">Maximum Heart Rate</label>
+                    <input id="thalach" class="form-control" type="text" name="thalach" placeholder="Max Heart Rate Achieved">
+                </div>
+            </div>
+
+            <!-- Exercise Angina and ST Depression -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="exang">Exercise Induced Angina</label>
+                    <input id="exang" class="form-control" type="text" name="exang" placeholder="1 = Yes; 0 = No">
+                </div>
+                <div class="form-group">
+                    <label for="oldpeak">ST Depression</label>
+                    <input id="oldpeak" class="form-control" type="text" name="oldpeak" placeholder="Old Peak induced by exercise:  0 to 6">
+                </div>
+            </div>
+
+            <!-- Slope and Vessels -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="slope">Slope of Peak ST</label>
+                    <input id="slope" class="form-control" type="text" name="slope" placeholder="0 = Upsloping, 1 = Flat, 2 = Downsloping:">
+                </div>
+                <div class="form-group">
+                    <label for="ca">Major Vessels</label>
+                    <input id="ca" class="form-control" type="text" name="ca" placeholder="Number of Major Vessels (0-3)">
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-block">Predict</button>
+        </form>
+    </div>
+</div>
